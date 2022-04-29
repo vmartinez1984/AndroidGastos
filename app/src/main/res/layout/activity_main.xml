@@ -17,7 +17,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="$ 5000"/>
+        android:text="$ 5000"
+        android:id="@+id/totalDeIngresosMain"/>
 
     <Button
         android:layout_width="match_parent"
@@ -34,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="$ 4000"
-        android:id="@+id/mainTotalDeGastos"/>
+        android:id="@+id/totalDeGastosMain"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,5 +49,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/textViewBalance"
         android:text="$ 1000"/>
 </LinearLayout>

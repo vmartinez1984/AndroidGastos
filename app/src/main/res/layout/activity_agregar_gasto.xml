@@ -22,8 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Cantidad"
-        android:inputType="number"
-        android:numeric="integer" />
+        android:inputType="number" />
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,9 +42,11 @@
             android:text="guardar"></Button>
 
         <Button
+            android:id="@+id/botonBorrarGasto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Borrar"></Button>
+            android:text="Borrar"
+            android:onClick="onClick_botonBorrarGasto"></Button>
     </LinearLayout>
 
     <ListView

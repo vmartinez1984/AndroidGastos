@@ -139,6 +139,20 @@ public class AgregarGastoActivity extends AppCompatActivity {
         }
     }
 
+    public void onClick_botonBorrarGasto(View view){
+        if(this.gastoId == 0){
+            Toast.makeText(getApplicationContext(), "Seleccione un gasto de la lista", Toast.LENGTH_LONG).show();
+        }else {
+            RepositorioDeGastos repositorioDeGastos;
+
+            repositorioDeGastos = new RepositorioDeGastos(this);
+            repositorioDeGastos.borrarGasto(this.gastoId);
+            this.gastoId = 0;
+
+            Toast.makeText(getApplicationContext(), "Gasto eliminado", Toast.LENGTH_LONG).show();
+        }
+    }
+
     private boolean esValidoGasto() {
         if(this.categoria == "Seleccione"){
             Toast.makeText(getApplicationContext(), "Seleccione una categoria",Toast.LENGTH_LONG).show();

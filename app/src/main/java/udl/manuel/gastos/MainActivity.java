@@ -9,31 +9,58 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import udl.manuel.gastos.repositorio.RepositorioDeGastos;
+import udl.manuel.gastos.repositorio.RepositorioDeIngresos;
 
 public class MainActivity extends AppCompatActivity {
     Button botonDeMenuDeIngreso;
     Button botonDeMenuDeGasto;
-    TextView mainTotalDeGastos;
+    TextView totalDeGastosMain;
+    TextView totalDeIngresosMain;
+    TextView textViewBalance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         inicializar();
+        colocarTotalDeIngresos();
         colocarTotalDeGastos();
+        colocarBalance();
+    }
+
+    private void colocarBalance() {
+        int balance;
+        RepositorioDeIngresos repositorioDeIngresos;
+        RepositorioDeGastos repositorioDeGastos;
+
+        repositorioDeIngresos = new RepositorioDeIngresos(this);
+        repositorioDeGastos = new RepositorioDeGastos(this);
+        balance = repositorioDeIngresos.obtenerTotal() - repositorioDeGastos.obtenerTotal();
+        this.textViewBalance.setText("$ " + balance);
+    }
+
+    private void colocarTotalDeIngresos() {
+        RepositorioDeIngresos repositorio;
+
+        repositorio = new RepositorioDeIngresos(this);
+
+        this.totalDeIngresosMain.setText("$ " + repositorio.obtenerTotal());
     }
 
     private void colocarTotalDeGastos() {
         RepositorioDeGastos repositorioDeGastos;
 
         repositorioDeGastos = new RepositorioDeGastos(this);
-        this.mainTotalDeGastos.setText("$ "+ repositorioDeGastos.obtenerTotal());
+
+        this.totalDeGastosMain.setText("$ "+ repositorioDeGastos.obtenerTotal());
     }
 
     private void inicializar() {
         this.botonDeMenuDeIngreso = findViewById((R.id.botonDeMenuIngreso));
         this.botonDeMenuDeGasto = findViewById(R.id.botonDeMenuGasto);
-        this.mainTotalDeGastos = findViewById(R.id.mainTotalDeGastos);
+        this.totalDeGastosMain = findViewById(R.id.totalDeGastosMain);
+        this.totalDeIngresosMain = findViewById(R.id.totalDeIngresosMain);
+        this.textViewBalance = findViewById(R.id.textViewBalance);
     }
 
     public void onClick_botonDeMenuIngreso(View view){
