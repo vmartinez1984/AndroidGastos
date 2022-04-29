@@ -10,22 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gastos">
         <activity
-            android:name=".ListaDeGastosActivity"
-            android:exported="false" />
-        <activity
             android:name=".AgregarGastoActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuGastosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ListaDeIngresosActivity"
-            android:exported="false" />
-        <activity
             android:name=".AgregarIngresoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MenuIngresosActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
